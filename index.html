@@ -11,14 +11,16 @@
 <body ng-app="zestApp">
   <div ng-controller="runCtrl">
     <md-toolbar layout="row">
-      <md-button class="md-fab md-accent" aria-label="open">
+      <md-button class="md-fab md-accent" aria-label="open"
+        ng-click="openFile()">
         <md-tooltip>
           Open
         </md-tooltip>
         <ng-md-icon icon="open_in_browser">
         </ng-md-icon>
       </md-button>
-      <md-button class="md-fab md-accent" aria-label="save">
+      <md-button class="md-fab md-accent" aria-label="save"
+        ng-click="saveFile()">
         <md-tooltip>
           Save
         </md-tooltip>
