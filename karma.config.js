@@ -22,6 +22,7 @@ module.exports = function(config) {
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-material-icons/angular-material-icons.js',
+      'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
       'js/zestApp.js',
       'js/*.js',
       'test/*.test.js'
