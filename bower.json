@@ -20,6 +20,7 @@
     "angular-material-icons": "~0.2.0",
     "angular-mocks": "~1.3.13",
     "bootstrap": "~3.3.2",
-    "angular-ui-tree": "git://github.com/angular-ui-tree/angular-ui-tree.git#master"
+    "angular-ui-tree": "git://github.com/angular-ui-tree/angular-ui-tree.git#master",
+    "lodash": "~3.5.0"
   }
 }

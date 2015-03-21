@@ -30,52 +30,43 @@
         <ng-md-icon icon="save">
         </ng-md-icon>
       </md-button>
-      <md-button class="md-fab md-accent" aria-label="lock">
+      <md-button class="md-fab md-accent" aria-label="lock" ng-click="printTree()">
         <md-tooltip>
           Lock Tab
         </md-tooltip>
         <ng-md-icon icon="lock">
         </ng-md-icon>
       </md-button>
+      <md-button class="md-fab md-accent" aria-label="run" ng-click="run()">
+        <md-tooltip>
+          Run Script
+        </md-tooltip>
+        <ng-md-icon icon="play_arrow"></ng-md-icon>
+      </md-button>
     </md-toolbar>
 
-    <md-tabs class="md-accent" md-selected="1">
+    <md-tabs class="md-accent" md-selected="0">
       <md-tab label="VIEW">
         <div class="view-tab" layout="column" layout-fill layout-align="space-around center">
           <div class="row">
             <script type="text/ng-template" id="items_renderer.html">
-                <div ui-tree-handle>
-                  <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+              <div ui-tree-handle title="{{item.tooltip}}">
+                <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                <img ng-src="images/{{ item.icon }}"/>
                   {{item.title}}
-                  <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
-                  <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
-                </div>
-                <ol ui-tree-nodes="options" ng-model="item.items" ng-class="{hidden: collapsed}">
-                  <li ng-repeat="item in item.items" ui-tree-node ng-include="'items_renderer.html'">
-                  </li>
-                </ol>
-              </script>
-              <div ui-tree="options">
-                <ol ui-tree-nodes ng-model="list" >
-                  <li ng-repeat="item in list" ui-tree-node ng-include="'items_renderer.html'"></li>
-                </ol>
+                <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span class="glyphicon glyphicon-plus"></span></a>
               </div>
-          </div>
-        </div>
-      </md-tab>
-      <md-tab label="RUN">
-        <div class="run-tab" layout="column" layout-fill layout-align="space-around center">
-          <div layout="row" layout-align="center center">
-            <md-button class="md-fab" aria-label="Run">
-              <md-tooltip>
-                Run Script
-              </md-tooltip>
-              <ng-md-icon icon="play_arrow"></ng-md-icon>
-            </md-button>
-          </div>
-          <md-divider></md-divider>
-          <div>
-            <p>Run script here</p>
+              <ol ui-tree-nodes="options" ng-model="item.items" ng-class="{hidden: collapsed}">
+                <li ng-repeat="item in item.items" ui-tree-node ng-include="'items_renderer.html'">
+                </li>
+              </ol>
+            </script>
+            <div ui-tree="options">
+              <ol ui-tree-nodes ng-model="list" >
+                <li ng-repeat="item in list" ui-tree-node ng-include="'items_renderer.html'"></li>
+              </ol>
+            </div>
           </div>
         </div>
       </md-tab>
@@ -87,6 +78,7 @@
     </md-tabs>
   </div>
 
+  <script src="bower_components/lodash/lodash.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-aria/angular-aria.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
